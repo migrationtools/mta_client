@@ -1,0 +1,22 @@
+<mat-toolbar color="accent" class="mat-toolbar mat-elevation-z20">
+  <span class="wells-app-header__title"><div tabindex="2">Welcome To Enterprise ArchCheck Client</div></span>
+</mat-toolbar>
+
+<mat-toolbar color="primary" class="mat-toolbar mat-elevation-z20">
+  <button mat-button class="sidenav-toggle" (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>ArchCheck Configuration Manager</span>
+  <span class="example-spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="toggleTheme.emit()">Toggle theme</button>
+    <button mat-menu-item (click)="logout.emit()">Logout</button>
+  </mat-menu>
+
+
+</mat-toolbar>

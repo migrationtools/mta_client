@@ -1,0 +1,21 @@
+<mat-tab-group animationDuration ="500ms">
+
+  <mat-tab label="Archive Analysis">
+    <mat-card>
+      <mat-card-content>
+        <app-mta-archive-analysis></app-mta-archive-analysis>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Analyzed Reports">
+    <mat-card>
+      <mat-card-content>
+        <app-mta-analysis-list></app-mta-analysis-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+
+</mat-tab-group>
+
+<router-outlet></router-outlet>

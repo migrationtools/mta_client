@@ -1,0 +1,115 @@
+<mat-card>
+  <div *ngIf="!dataLoadComplete">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="dataLoadComplete">
+
+    <div class="flex-container">
+
+      <mat-form-field>
+        <mat-select placeholder="App Id" required
+                    [(ngModel)]= "appIdDetail.appId" (selectionChange)="loadAppDetails($event.value)">
+          <mat-option *ngFor="let appId of appIds" [value]="appId">
+            {{ appId }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Application Name" required
+               [(ngModel)]= "appIdDetail.applicationName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Classification" required
+                    [(ngModel)]= "appIdDetail.applicationType">
+          <mat-option *ngFor="let appType of appTypes" [value]="appType">
+            {{ appType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="User Access Type" required
+                    [(ngModel)]= "appIdDetail.accessType">
+          <mat-option *ngFor="let userAccessType of userAccessTypes" [value]="userAccessType">
+            {{ userAccessType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="DBMS" required
+                    [(ngModel)]= "appIdDetail.databaseType">
+          <mat-option *ngFor="let databaseType of databaseTypes" [value]="databaseType">
+            {{ databaseType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Git URL" required
+               [(ngModel)]= "appIdDetail.git_url">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Monitoring Tools" required
+               [(ngModel)]= "appIdDetail.monitoring_framework">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Logging Provider" required
+                    [(ngModel)]= "appIdDetail.logging_provider">
+          <mat-option *ngFor="let loggingProvider of loggingProviders" [value]="loggingProvider">
+            {{ loggingProvider}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Microsoft Libraries used" multiple
+                    [(ngModel)]= "appIdDetail.microsoftLibs">
+          <mat-option *ngFor="let microsoftLib of microsoftLibs" [value]="microsoftLib">
+            {{ microsoftLib}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Third Party Libraries used" multiple
+                    [(ngModel)]= "appIdDetail.thirdPartyLibs">
+          <mat-option *ngFor="let thirdPartyLib of thirdPartyLibs" [value]="thirdPartyLib">
+            {{ thirdPartyLib}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Inhouse Libs used" multiple
+                    [(ngModel)]= "appIdDetail.inHouseLibs">
+          <mat-option *ngFor="let inHouseLib of inhouseLibs" [value]="inHouseLib">
+            {{ inHouseLib}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-8">
+
+        <button mat-raised-button (click)="reset()"
+                class="btn btn-outline-secondary mr-3"
+                style="width:80px">
+          Reset
+        </button>
+
+        <button mat-raised-button color="primary" (click)="evaluate()"
+                class="btn btn-outline-primary"
+                style="width:150px" >
+          Analyze
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>

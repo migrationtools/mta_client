@@ -1,0 +1,179 @@
+@import '~@angular/material/theming';
+@include mat-core();
+@import "wells-theme.scss";
+@include angular-material-theme($wells-app-theme);
+//@include angular-material-theme($candy-app-theme);
+
+.wells-app-header {
+  z-index: 9600;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: calc(100%);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  min-height: 64px;
+  background: #333;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  /* commented out transition: all .25s; as for static header/nav */
+}
+.wells-app-header .logo {
+  width: 64px;
+  height: 64px;
+  padding: 16px 24px;
+  transition: all .25s; }
+.wells-app-header .logo .icon {
+  position: absolute;
+  top: 16px;
+  left: 18px; }
+.wells-app-header .logo:hover {
+    background: #ccc; }
+.wells-app-header .logo:hover .icon--logo-mini {
+  background-position: -38px -57px; }
+.wells-app-header .logo--offscreen {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 250px;
+  background: #ccc; }
+.wells-app-header .logo--offscreen img {
+  position: absolute;
+  top: 16px;
+  left: 24px; }
+.wells-app-header .logo--offscreen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 64px 64px 0;
+  border-color: transparent #333 transparent transparent;
+}
+
+@media (min-width: 768px) {
+  .wells-app-header__branding {
+    display: block; }
+  .wells-app-header   .flex-home {
+    flex-grow: 0.3 !important;
+  }
+}
+
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  display: none !important;
+}
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .visible-xs {
+    display: block !important;
+  }
+  table.visible-xs {
+    display: table !important;
+  }
+  tr.visible-xs {
+    display: table-row !important;
+  }
+  th.visible-xs,
+  td.visible-xs {
+    display: table-cell !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-block {
+    display: block !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline {
+    display: inline !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+}
+
+.wells-app-header__title {
+  font-family: "Avenir Next LT Pro", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 700;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin: 0;
+  padding: 20px 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .wells-app-header__title {
+    overflow: visible; }
+  .wells-app-header__title a {
+    display: inline;
+    overflow: visible; }
+}
+
+@media (min-width: 768px) {
+  .wells-app-header__title {
+    overflow: visible; }
+  .wells-app-header__title a {
+    display: inline;
+    overflow: visible; }
+}
+
+
+
+.dark-theme {
+  $primary-dark: mat-palette($mat-pink, 700);
+  $accent-dark: mat-palette($mat-green);
+  $warn-dark: mat-palette($mat-red);
+
+  $theme-dark: mat-dark-theme($primary-dark, $accent-dark, $warn-dark);
+
+  @include angular-material-theme($theme-dark);
+  .active {
+    font-weight: bold;
+    color: mat-color($accent-dark, darker) !important;
+  }
+
+}
+
+.active {
+  font-weight: bold;
+  color: mat-color($wells-app-accent, darker) !important;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

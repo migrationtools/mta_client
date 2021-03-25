@@ -1,0 +1,55 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Arch Check Web UI</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="mat-elevation-z8">
+  <div class="main-div">
+    <mat-card style="width: 400px; " >
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+            <div class="s-login-pg-foot">
+              <div *ngIf="errMsg" style="color: indianred; font-weight: bold">{{errMsg}}</div>
+            </div>
+            <div class="flex-container">
+              <mat-form-field>
+                <input matInput placeholder="UserId" id="j_username" name="j_username"
+                       [(ngModel)]="loginRequest.userId" style="height: 40px" required>
+              </mat-form-field>
+            </div>
+              <div *ngIf="loadInProgress">
+                <mat-spinner></mat-spinner>
+              </div>
+            <div class="flex-container">
+              <mat-form-field>
+                  <input matInput placeholder="Password" [(ngModel)]="loginRequest.password" style="height: 40px"
+                         type="password" name="j_password" id="j_password" required (keydown)="onKeydown($event)">
+                </mat-form-field>
+            </div>
+          <div class="flex-container">
+              <mat-form-field>
+                  <mat-select placeholder="Select Environment" [(ngModel)]= "selectedEnvironment">
+                      <mat-option value="http://localhost:8080">&nbsp;
+                          Local Server - http://localhost:8080
+                      </mat-option>
+                      <mat-option value="http://remoteserver:8080">&nbsp;
+                          Remote Server - http://remoteserver:8080
+                      </mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <div class="wrapper">
+          <button mat-raised-button (click)="login()" color="primary">Login</button>
+        </div>
+      </mat-card-actions>
+
+    </mat-card>
+  </div>
+</div>

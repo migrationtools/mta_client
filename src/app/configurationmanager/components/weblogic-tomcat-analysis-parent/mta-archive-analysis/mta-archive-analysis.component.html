@@ -1,0 +1,31 @@
+<div class = "form-group w-50">
+  <label class="my-1 mr-2">Archive:</label>
+  <label class="btn btn-default">
+    <input name="file" type="file" (change)="selectFile($event)">
+  </label><br/>
+  <div class="form-group">
+    <label class="my-1 mr-2">Target:</label>
+    <select class="form-control"
+            required
+            [(ngModel)]="selectedTarget.target" name="target">
+      <option value="" disabled selected>Select Target</option>
+      <option *ngFor=" let tar of targets" [value]="tar">{{tar}}</option>
+    </select>
+  </div>
+  <button class="btn btn-primary my-1" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+</div>
+
+<h4 *ngIf="commandView===true">Command Line Output</h4>
+<div *ngIf="commandView===true" class="container bg-dark text-white col-md-12 overflow-auto" style="height: 200px;">
+     <div #div></div>
+</div>
+<br/>
+<div *ngIf="showSpinner===false; else noreport">
+  <app-mta-archive-analysis-report *ngIf="iframeRender === true"></app-mta-archive-analysis-report>
+</div>
+<ng-template #noreport>
+  <button class ="btn btn-primary" type="button" disabled>
+    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    {{message}}
+  </button>
+</ng-template>
