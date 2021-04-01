@@ -1,3 +1,20 @@
-<p>
-  mta-analysis-list works!
-</p>
+<div class="table-container">
+  <div class="row bg-dark text-white ">
+    <div class="col-6 border border-primary"><h4>{{folderName}}</h4></div>
+    <div class="col-6 border border-primary"><h4>{{date}}</h4></div>
+
+  </div>
+  <div class="row" *ngFor="let folder of getFoldersList()">
+    <div class="col-6 text-wrap text-break border border-secondary"><a
+            href="{{basePath}}/{{folder.folderName}}/index.html" target="_blank"><p>{{folder.folderName}}</p></a>
+    </div>
+    <div class="col-6 text-wrap text-break border border-secondary"><a
+            href="{{basePath}}/{{folder.folderName}}/index.html" target="_blank"><p>{{folder.lastModified}}</p></a>
+    </div>
+  </div>
+</div>
+
+
+
+
+

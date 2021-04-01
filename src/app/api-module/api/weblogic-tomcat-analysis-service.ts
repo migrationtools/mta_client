@@ -52,4 +52,11 @@ export class WeblogicTomcatAnalysisService {
                 reportProgress: true
             });
     }
+
+    public getDirectoryListByDescendingDate(reportProgress: boolean=false): Observable<any> {
+        return this.httpClient.get<any>( this.sessionManager.getBasePath() + '/directoryListByDescendingDate', {
+            reportProgress: true
+        });
+    }
+
 }

@@ -43,7 +43,7 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit() {
     this.configs.push(Object.assign({},
-        new ArchCheckconfiguration('legacy_standard', 'Weblogic-Tomcat-Assessment',
+        new ArchCheckconfiguration('legacy_standard', 'Migration-Assessment',
             'questionaire', 'leaf', null)));
 
     this.configs.push(Object.assign({},
